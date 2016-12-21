@@ -1,0 +1,43 @@
+Car safety
+
+Descrierea proiectului:
+
+	Ideea proiectului este un modul complex care permite urmarirea si securizarea autovehiculelor
+cu ajutorul modulelor embedded si un microcontroler. Aplicatia va avea posibilitatea de a urmari
+autovehiculul in orice moment cu ajutorul modulului GPS care va furniza constant date despre locatia
+acestuia care va fii reprezentata pe o harta. Pentru a putea obtine locatia masini vom folosi si un 
+modul GSM care cu ajutorul sms-urilor va trimite coordonatele masini la microcontroler, dar cu ajutorul
+modulului GSM putem realiza si un control al masini ca de exemplu in cazul in care cineva reuseste sa 
+porneasca masina si sa plece cu ea, sa fim avertizati printr-un mesaj ca cineva a pornit masina. Pentru
+a determina ca masina a fost pornita sau este pornita o sa monitorizez presiunea de ulei a motorului, 
+astfel in cazul in care masina are presiune de ulei vom stii ca masina este pornita. Daca dorim sa 
+oprim masina, impiedicand astfel furtul acestuia, trimitem un mesaj cu textul "STOP" la masina care 
+va actiona un releu care face legatura cu pompa de combustibil a masini si asa oprind alimentarea 
+se opreste si masina, sau daca dorim sa aflam locatia exacta a masini trimitem prin mesajtextul "GPS", 
+in acest moment microcontrolerul obtine longitudinea si latitudinea masini si trimite datele prin mesaj 
+la utilizator.
+	Proiectul as vrea sa mai aiba si o aplicatie de geo-fence care inseamna un gard virtual si ar
+avea functionalitatea ca in cazul in care masina paraseste gardul virtual setat de noi sa trimita un
+mesaj la utilizator ca masina respectiva a trecut de gard.
+
+
+
+Ca elemente necesare ar fii:
+- microcontroler
+- modul GPS + GSM
+- senzor de presiune de ulei
+- releu
+- alimentare
+- atmel studio
+
+
+
+
+Structura modulara:
+
+Microcontrolerul este creierul care controleaza modulul GSM, modulul GPS, Releul
+
+Microcontroler <-> Modul GSM -> Trimite si obtine date
+               <- Modul GPS -> Doar obtine date
+               -> Releu -> Rol pentru comandarea pompei de alimentare a masini
+               <- Senzor presiune de ulei -> Monitorizeaza starea masini, adica pornit sau oprit
